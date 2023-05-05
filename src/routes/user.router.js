@@ -5,7 +5,7 @@ const verifyJWT = require('../middleware/auth.middleware');
 const userRouter = express.Router();
 
 userRouter.route('/')
-    .get(verifyJWT, getAll)
+    .get(getAll)
     .post(create);
     
 userRouter.route("/me")
@@ -15,7 +15,7 @@ userRouter.route("/login")
     .post(login)
 
 userRouter.route('/:id')
-    .get(verifyJWT, getOne)
+    .get(getOne)
     .delete(remove)
     .put(update);
 
